@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Homeroom.unity
     guid: 4d94479dbf7a402479d242f344a049df
+  - enabled: 1
+    path: Assets/Scenes/Hallway.unity
+    guid: 93b29e04ccd5e854ea58410ec9e44967
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: e23b1f56815157c45ba5973b8f295753,
       type: 2}
