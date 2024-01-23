@@ -1,14 +1,16 @@
 using UnityEngine;
 
-public class BouncingArrow : MonoBehaviour
+public class Bonce : MonoBehaviour
 {
     private float initialPositionY;
     public float movementRange = 0.1f;
+    public AudioClip BeepSound;
     public float movementSpeed = 1.0f;
     public GameObject buttonCube; // Reference to the Button Cube GameObject
     public float handProximityDistance = 0.2f; // Adjust this value as needed
-
+    private AudioSource audioSource;
     private GameObject signIn; // Reference to the SignIn GameObject
+    private FlashOutline flashOutlineScript; // Reference to the FlashOutline script
 
     void Start()
     {
@@ -25,6 +27,29 @@ public class BouncingArrow : MonoBehaviour
         {
             Debug.LogError("content2 not found in the hierarchy.");
         }
+
+        // Debug statement to log hierarchy
+        Debug.Log("Hierarchy: " + GetHierarchy(transform));
+
+        // Find and disable the FlashOutline script
+        Transform glowchairs1 = transform.Find("/chairs/glowchairs1");
+        if (glowchairs1 != null)
+        {
+            flashOutlineScript = glowchairs1.GetComponent<FlashOutline>();
+            if (flashOutlineScript != null)
+            {
+                flashOutlineScript.DisableFlashing();
+                Debug.Log("FlashOutline script found and disabled at the start.");
+            }
+            else
+            {
+                Debug.LogError("FlashOutline script not found on glowchairs1 GameObject.");
+            }
+        }
+        else
+        {
+            Debug.LogError("chairs/glowchairs1 not found in the hierarchy.");
+        }
     }
 
     void Update()
@@ -35,8 +60,19 @@ public class BouncingArrow : MonoBehaviour
             // Stop the bouncing and hide the arrow
             StopBouncingAndHideArrow();
 
+            // Make sound
+            StartBeepSound();
+
+
             // Deactivate Content1 and activate Content2
             ActivateContent(signIn, "content2");
+
+            // Enable the FlashOutline script
+            if (flashOutlineScript != null)
+            {
+                flashOutlineScript.EnableFlashing();
+            }
+
             return; // Exit the Update method to prevent further arrow movement
         }
 
@@ -69,6 +105,19 @@ public class BouncingArrow : MonoBehaviour
         // Hide or deactivate the arrow GameObject
         gameObject.SetActive(false);
     }
+    void StartBeepSound()
+    {
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        if (audioSource != null && BeepSound != null)
+        {
+            audioSource.clip = BeepSound;
+            audioSource.Play();
+        }
+    }
 
     void ActivateContent(GameObject parent, string contentObjectName)
     {
@@ -98,5 +147,21 @@ public class BouncingArrow : MonoBehaviour
     float EaseInOutQuad(float t)
     {
         return t < 0.5f ? 2f * t * t : -1f + (4f - 2f * t) * t;
+    }
+
+    string GetHierarchy(Transform current)
+    {
+        if (current == null)
+            return "";
+
+        string hierarchy = current.name;
+
+        while (current.parent != null)
+        {
+            current = current.parent;
+            hierarchy = current.name + "/" + hierarchy;
+        }
+
+        return hierarchy;
     }
 }
