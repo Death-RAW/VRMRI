@@ -16,5 +16,6 @@ ScriptedImporter:
     tangents: 0
     animationType: 1
     avatarDefinition: 1
-    avatar: {fileID: -8473373598174160398, guid: 445eeb133284ba94a92d73652b02d99d, type: 3}
+    avatar: {fileID: -8473373598174160398, guid: 445eeb133284ba94a92d73652b02d99d,
+      type: 3}
     isDidimo: 1
