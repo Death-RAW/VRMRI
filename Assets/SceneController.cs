@@ -5,7 +5,7 @@ using System.Collections;
 public class SceneController : MonoBehaviour
 {
     public AudioClip carHumSound;
-    public float homeroomDuration = 5f;
+    public float homeroomDuration = 50f;
     public float hallwayDelay = 15f;
 
     private AudioSource audioSource;
