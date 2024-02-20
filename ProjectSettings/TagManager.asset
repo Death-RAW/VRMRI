@@ -10,6 +10,8 @@ TagManager:
   - kanyls
   - loco
   - inter
+  - left
+  - hand
   layers:
   - Default
   - TransparentFX
