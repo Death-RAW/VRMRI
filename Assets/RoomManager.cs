@@ -1,21 +1,35 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Collections;
+using UnityEngine.Video;
+using System.Threading;
 
-public class RoomManager : MonoBehaviour
-{
+public class RoomManager : MonoBehaviour{
     public AudioClip carSound;
     public float initialDelay = 2f;
     public float audioStartDelay = 17f;
     public float audioStopTime = 34f;
-
-    [Tooltip("Drag the XR Interaction Manager's Camera GameObject here.")]
     public GameObject xrCamera;
-
     private AudioSource audioSource;
-
     void Start()
     {
+        GameObject videoPlane = GameObject.Find("videoPlane");
+        if (videoPlane != null)
+        {
+            VideoPlayer videoPlayer = videoPlane.GetComponent<VideoPlayer>();
+            if (videoPlayer != null)
+            {
+                videoPlayer.enabled = false; // Disable the VideoPlayer component
+            }
+            else
+            {
+                Debug.LogError("VideoPlayer component not found on the GameObject named 'videoPlane'.");
+            }
+        }
+        else
+        {
+            Debug.LogError("GameObject named 'videoPlane' not found.");
+        }
         // Start the room sequence
         StartCoroutine(RoomSequence());
     }
@@ -43,8 +57,26 @@ public class RoomManager : MonoBehaviour
         Debug.Log("Waited for audio start delay.");
 
         // Move XR Camera (XR Rig) to the 2 position
-        MoveXRCameraToPosition(new Vector3(-36.26f, 0.6f, 15.99f));
+        MoveXRCameraToPosition(new Vector3(-38.88f, 0.327f, 16.296f));
         Debug.Log("XR Camera (XR Rig) moved to the 2 position. Current position: " + GetXRCameraPosition());
+
+        GameObject videoPlane = GameObject.Find("videoPlane");
+        if (videoPlane != null)
+        {
+            VideoPlayer videoPlayer = videoPlane.GetComponent<VideoPlayer>();
+            if (videoPlayer != null)
+            {
+                videoPlayer.enabled = true; // enable the VideoPlayer component
+            }
+            else
+            {
+                Debug.LogError("VideoPlayer component not found on the GameObject named 'videoPlane'.");
+            }
+        }
+        else
+        {
+            Debug.LogError("GameObject named 'videoPlane' not found.");
+        }
         
         // Start playing car sound
         StartCarSound();
@@ -73,7 +105,14 @@ public class RoomManager : MonoBehaviour
         {
             Debug.LogWarning("XR Camera (XR Rig) not found immediately. Will keep looking during the sequence.");
         }
-    }
+    }/* 
+    private void DisableHeadRotationAfterDuration()
+    {
+        if (headrotation != null)
+        {
+            headrotation.enabled = false; // Disable head rotation
+        }
+    } */
 
     void MoveXRCameraToPosition(Vector3 position)
     {
@@ -89,20 +128,31 @@ public class RoomManager : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
-
-        if (audioSource != null && carSound != null)
-        {
-            audioSource.clip = carSound;
-            audioSource.Play();
-        }
     }
-
     void StopCarSound()
     {
         if (audioSource != null)
         {
             audioSource.Stop();
+                    GameObject videoPlane = GameObject.Find("videoPlane");
+        if (videoPlane != null)
+        {
+            VideoPlayer videoPlayer = videoPlane.GetComponent<VideoPlayer>();
+            if (videoPlayer != null)
+            {
+                videoPlayer.enabled = false; // Disable the VideoPlayer component
+            }
+            else
+            {
+                Debug.LogError("VideoPlayer component not found on the GameObject named 'videoPlane'.");
+            }
         }
+        else
+        {
+            Debug.LogError("GameObject named 'videoPlane' not found.");
+        }
+        
+            }
     }
 
     string GetXRCameraPosition()
@@ -113,5 +163,23 @@ public class RoomManager : MonoBehaviour
         }
         return "XR Camera (XR Rig) not found.";
     }
+    void VideoPlayerErrorReceived(VideoPlayer source, string message)
+    {
+        Debug.LogError("VideoPlayer Error: " + message);
+    }
 
+    void VideoPlayerPrepareCompleted(VideoPlayer source)
+    {
+        Debug.Log("VideoPlayer Prepare Completed");
+    }
+
+    void VideoPlayerStarted(VideoPlayer source)
+    {
+        Debug.Log("VideoPlayer Started");
+    }
+
+    void VideoPlayerLoopPointReached(VideoPlayer source)
+    {
+        Debug.Log("VideoPlayer Loop Point Reached");
+    }
 }

@@ -12,6 +12,7 @@ TagManager:
   - inter
   - left
   - hand
+  - videoPlane
   layers:
   - Default
   - TransparentFX
