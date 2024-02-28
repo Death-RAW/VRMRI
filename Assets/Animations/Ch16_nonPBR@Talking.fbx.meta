@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b0950cec0001f8c4d9d32f16307af22a
+guid: 7c4c0fb4f996aa54db38d722923be804
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -24,7 +24,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -33,7 +33,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walking Left Turn
+      name: Talking
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
