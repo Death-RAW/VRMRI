@@ -13,6 +13,9 @@ TagManager:
   - left
   - hand
   - videoPlane
+  - RoomLight
+  - Door
+  - Finger
   layers:
   - Default
   - TransparentFX
