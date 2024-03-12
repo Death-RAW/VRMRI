@@ -7,7 +7,7 @@ public class GDTFadeEffect : MonoBehaviour
     public Color firstColor;
     public Color lastColor;
     public float timeEffect;
-    public float initialDelay;
+    public float initialDelay = 68;
     public bool firstToLast=true;
     public bool pingPong;
     public float pingPongDelay;

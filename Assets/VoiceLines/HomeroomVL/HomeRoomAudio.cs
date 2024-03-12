@@ -27,6 +27,7 @@ public class HomeRoomAudio : MonoBehaviour
         {
             source.clip = clips[currentIndex];
             source.Play();
+            
 
             // Set up a callback for the OnComplete event
             StartCoroutine(WaitForAudioClip(source.clip.length, () =>
