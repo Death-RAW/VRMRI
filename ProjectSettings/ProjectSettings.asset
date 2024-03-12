@@ -141,8 +141,9 @@ PlayerSettings:
   tvOSBundleVersion: 1.0
   bundleVersion: 0.1.0
   preloadedAssets:
-  - {fileID: -2144251159742666473, guid: 027bc78316ca44f6d84aa1d09fa8e9d8, type: 2}
-  - {fileID: 879332282201946196, guid: e31d2d8a8f66847cd89f903952e69917, type: 2}
+  - {fileID: 1436934762770611232, guid: 027bc78316ca44f6d84aa1d09fa8e9d8, type: 2}
+  - {fileID: 11400000, guid: e23b1f56815157c45ba5973b8f295753, type: 2}
+  - {fileID: -5018510616638660152, guid: e31d2d8a8f66847cd89f903952e69917, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -843,8 +844,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: VRMRI_002
-  metroPackageVersion: 
+  metroPackageName: VRMRI002
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -852,7 +853,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: VRMRI_002
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: VRMRI_002
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
