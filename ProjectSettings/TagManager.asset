@@ -16,6 +16,7 @@ TagManager:
   - RoomLight
   - Door
   - Finger
+  - nurse
   layers:
   - Default
   - TransparentFX
