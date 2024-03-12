@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+public class AI_follow_destination : MonoBehaviour
+{
+    public NavMeshAgent ai;
+    public Transform player;
+    public Animator aiAnim;
+    Vector3 dest;
+
+    void Update()
+    {
+        dest = player.position;
+        ai.destination = dest;
+        if (ai.remainingDistance <= ai.stoppingDistance)
+        {
+            aiAnim.ResetTrigger("walk");
+            aiAnim.SetTrigger("idle");
+        }
+        else
+        {
+            aiAnim.ResetTrigger("idle");
+            aiAnim.SetTrigger("walk");
+        }
+    }
+}
+
+
+
