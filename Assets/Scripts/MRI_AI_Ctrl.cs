@@ -44,8 +44,6 @@ public class MRI_AI_Ctrl : MonoBehaviour
 
     private IEnumerator DelayedRotationAndAnimation()
     {
-        
-        
         // Rotate mothercharacter by 180 degrees
         mothercharacter.transform.Rotate(0, -180, 0);
                 
