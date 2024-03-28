@@ -17,6 +17,7 @@ TagManager:
   - Door
   - Finger
   - nurse
+  - hmd
   layers:
   - Default
   - TransparentFX

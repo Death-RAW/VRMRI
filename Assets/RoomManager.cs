@@ -12,6 +12,7 @@ public class RoomManager : MonoBehaviour{
     public float audioStopTime = 34f;
     public GameObject xrCamera;
     private AudioSource audioSource;
+    public GameObject mother;
     void Start()
     {
         GameObject videoPlane = GameObject.Find("videoPlane");
@@ -49,13 +50,13 @@ public class RoomManager : MonoBehaviour{
             FindXRCamera();
         }
 
-        // Move XR Camera (XR Rig) to the first position
-        MoveXRCameraToPosition(new Vector3(-12.62f, 0.6f, 31.819f));
-        Debug.Log("XR Camera (XR Rig) moved to the first position. Current position: " + GetXRCameraPosition());
+        // // Move XR Camera (XR Rig) to the first position
+        // MoveXRCameraToPosition(new Vector3(-12.62f, 0.6f, 31.819f));
+        // Debug.Log("XR Camera (XR Rig) moved to the first position. Current position: " + GetXRCameraPosition());
 
-        // Wait for the specified duration
-        yield return new WaitForSeconds(audioStartDelay);
-        Debug.Log("Waited for audio start delay.");
+        // // Wait for the specified duration
+        // yield return new WaitForSeconds(audioStartDelay);
+        // Debug.Log("Waited for audio start delay.");
 
         // Move XR Camera (XR Rig) to the 2 position
         MoveXRCameraToPosition(new Vector3(-38.88f, 0.327f, 16.296f));
@@ -90,9 +91,10 @@ public class RoomManager : MonoBehaviour{
         // Stop the car sound
         StopCarSound();
         Debug.Log("Car sound stopped.");
+        MoveMotherToPosition(new Vector3(-6.712f, 0.01f, 10.099f));
 
         // Move XR Camera (XR Rig) to the final position
-        MoveXRCameraToPosition(new Vector3(-5.715f, 0.6f, 9.917f));
+        MoveXRCameraToPosition(new Vector3(-6.59f, 0.584f, 9.073f));
         Debug.Log("XR Camera (XR Rig) moved to the final position. Current position: " + GetXRCameraPosition());
 
         Debug.Log("Room sequence completed.");
@@ -120,6 +122,13 @@ public class RoomManager : MonoBehaviour{
         if (xrCamera != null)
         {
             xrCamera.transform.position = position;
+        }
+    }
+    void MoveMotherToPosition(Vector3 position)
+    {
+        if (mother != null)
+        {
+            mother.transform.position = position;
         }
     }
 

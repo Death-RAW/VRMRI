@@ -2737,7 +2737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360ad58723997be4194cdbdf83a1a07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeroomDuration: 3
+  homeroomDuration: 22
 --- !u!4 &297898704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4089141461320862, guid: 7b02d4dddd1c7ae42a89e6ab331dbcd2,

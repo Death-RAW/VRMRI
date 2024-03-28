@@ -1,30 +1,32 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
+
 public class mother_follow : MonoBehaviour
 {
     public NavMeshAgent ai;
     public Transform player;
     public Animator aiAnim;
     Vector3 dest;
-
     void Update()
     {
-        dest = player.position;
-        ai.destination = dest;
-        if (ai.remainingDistance <= ai.stoppingDistance)
+        // If the script is enabled (after the 20-second wait), start following the player
+        if (enabled)
         {
-            aiAnim.ResetTrigger("walk");
-            aiAnim.SetTrigger("idle");
-        }
-        else
-        {
-            aiAnim.ResetTrigger("idle");
-            aiAnim.SetTrigger("walk");
+            dest = player.position;
+            ai.destination = dest;
+
+            if (ai.remainingDistance <= ai.stoppingDistance)
+            {
+                aiAnim.ResetTrigger("walk");
+                aiAnim.SetTrigger("idle");
+            }
+            else
+            {
+                aiAnim.ResetTrigger("idle");
+                aiAnim.SetTrigger("walk");
+            }
         }
     }
 }
-
-
-

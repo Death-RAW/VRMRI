@@ -11,6 +11,7 @@ public class Bonce : MonoBehaviour
     private AudioSource audioSource;
     private GameObject signIn; // Reference to the SignIn GameObject
     private FlashOutline flashOutlineScript; // Reference to the FlashOutline script
+    public HallwayAudio hallwayAudio; // Reference to the HallwayAudio script
 
     void Start()
     {
@@ -63,6 +64,8 @@ public class Bonce : MonoBehaviour
             // Make sound
             StartBeepSound();
 
+            //TODO trigger function HallwayAudio to play the second clip
+            hallwayAudio.PlayAndRemoveClip();
 
             // Deactivate Content1 and activate Content2
             ActivateContent(signIn, "content2");
