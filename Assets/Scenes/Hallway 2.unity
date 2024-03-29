@@ -26219,7 +26219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1010461979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26271,7 +26271,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010461978}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1010461981
 Camera:
   m_ObjectHideFlags: 0
@@ -37876,6 +37876,7 @@ MonoBehaviour:
   audioStartDelay: 0
   audioStopTime: 0
   xrCamera: {fileID: 424948872}
+  mother: {fileID: 0}
 --- !u!4 &1511561298
 Transform:
   m_ObjectHideFlags: 0
@@ -38815,6 +38816,7 @@ MonoBehaviour:
   movementSpeed: 0.2
   buttonCube: {fileID: 1596565588}
   handProximityDistance: 0.2
+  hallwayAudio: {fileID: 0}
 --- !u!1001 &1537844970
 PrefabInstance:
   m_ObjectHideFlags: 0

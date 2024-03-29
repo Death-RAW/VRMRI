@@ -3239,13 +3239,14 @@ MonoBehaviour:
   source: {fileID: 1789326084}
   clips:
   - {fileID: 8300000, guid: cf441d72b65ca344e8f10491d0755088, type: 3}
-  - {fileID: 8300000, guid: 283310c6428c23345b0f29e9bedbe5b0, type: 3}
-  - {fileID: 8300000, guid: fedf25482a4c1714eb8323f4cdfca460, type: 3}
+  - {fileID: 8300000, guid: c1fd3692879c17f4498c80e46ff08252, type: 3}
+  - {fileID: 8300000, guid: 9fbbb615d2a2f2a49b3bbe9f841074b3, type: 3}
   - {fileID: 8300000, guid: 8637f87674bdbb348ae95e035d582768, type: 3}
+  - {fileID: 8300000, guid: 5b6671d75a819664dac19f050a0e19c9, type: 3}
   - {fileID: 8300000, guid: f6d0cefe6c6fa2b40a64ce32f6b7f61c, type: 3}
   - {fileID: 8300000, guid: 7305f127c80f6e040b0cc0e949c9aa1b, type: 3}
   aiAnim: {fileID: 851688141}
-  character: {fileID: 1789326081}
+  xrRigTransform: {fileID: 1997149269}
 --- !u!1001 &1634733485
 PrefabInstance:
   m_ObjectHideFlags: 0
