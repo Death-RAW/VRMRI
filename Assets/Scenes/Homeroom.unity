@@ -2737,7 +2737,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360ad58723997be4194cdbdf83a1a07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  homeroomDuration: 22
+  audioClips: []
+  nextSceneName: 
+  audioSource: {fileID: 0}
 --- !u!4 &297898704 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4089141461320862, guid: 7b02d4dddd1c7ae42a89e6ab331dbcd2,
@@ -21872,17 +21874,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1870829406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eafea0d7e494024c87e8802f69e2a64, type: 3}
+  m_Script: {fileID: 11500000, guid: 360ad58723997be4194cdbdf83a1a07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 507195892}
-  clips:
+  audioClips:
   - {fileID: 8300000, guid: 15cbc4baec17c0949b7da09a2718493c, type: 3}
   - {fileID: 8300000, guid: 6966735e4a0799448a9fe8ef7c14e421, type: 3}
   - {fileID: 8300000, guid: a5cbd29221c958e43bb1ab5ccc2409a7, type: 3}
   - {fileID: 8300000, guid: 86dc61ea97ca8154d8536105150ba383, type: 3}
   - {fileID: 8300000, guid: c8a869c4108d08f47bafbe95b9bf0280, type: 3}
   - {fileID: 8300000, guid: 2b5ec9805147d48418b5ff175cf8511a, type: 3}
+  nextSceneName: Hallway
+  audioSource: {fileID: 507195892}
 --- !u!4 &1874857483 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4089141461320862, guid: 7b02d4dddd1c7ae42a89e6ab331dbcd2,

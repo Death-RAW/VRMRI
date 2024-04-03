@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/cannulation_room.unity
     guid: 6335dd21b1bb76e4a96298e14bb732e4
   - enabled: 1
-    path: Assets/Scenes/MRI_Room.unity
+    path: Assets/Scenes/MRIscenes/MRI_Room.unity
     guid: 65605b0eec2b74a269ae99397528d450
   - enabled: 1
     path: Assets/Scenes/Hallway 2.unity

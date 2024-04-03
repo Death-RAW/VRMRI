@@ -4,14 +4,16 @@ using System.Collections;
 
 public class SceneController : MonoBehaviour
 {
-    public float homeroomDuration = 68f;
+    public AudioClip[] audioClips;
+    public string nextSceneName; // Name of the scene to transition to next
+    public AudioSource audioSource; // AudioSource component to play the audio clips
+    private bool isPlaying = false;
 
     // Ensure that only one instance of SceneController exists
     private static SceneController instance;
 
     void Awake()
     {
-        
         // Check if an instance already exists
         if (instance != null && instance != this)
         {
@@ -26,20 +28,41 @@ public class SceneController : MonoBehaviour
         // Mark the GameObject as "Don't Destroy On Load"
         DontDestroyOnLoad(gameObject);
 
-        // Start the homeroom scene
-        StartCoroutine(LoadHallwayAfterDuration());
+        // Start playing the audio clips
+        StartCoroutine(PlayAudioThenLoadScene());
     }
 
-    IEnumerator LoadHallwayAfterDuration()
+    IEnumerator PlayAudioThenLoadScene()
     {
-        // Wait for the specified duration
-        yield return new WaitForSeconds(homeroomDuration);
+        if (audioSource == null)
+        {
+            Debug.LogError("No AudioSource assigned to SceneController.");
+            yield break;
+        }
 
-        // Load the hallway scene
-        SceneManager.LoadScene("Hallway");
+        isPlaying = true;
+
+        // Play each audio clip sequentially
+        foreach (AudioClip clip in audioClips)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+            yield return new WaitForSeconds(clip.length);
+        }
+
+        isPlaying = false;
+
+        // Load the next scene
+        SceneManager.LoadScene(nextSceneName);
     }
 
-    void OnDestroy1()
+    // Check if the audio is still playing
+    public bool IsPlaying()
+    {
+        return isPlaying;
+    }
+
+    void OnDestroy()
     {
         Debug.Log("SceneController destroyed");
     }
