@@ -9338,7 +9338,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -7041218914393388162, guid: 83d46e344647144578ef4bca6e090451,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 957952742}
   m_SourcePrefab: {fileID: 100100000, guid: 83d46e344647144578ef4bca6e090451, type: 3}
 --- !u!4 &957952740 stripped
 Transform:
@@ -9346,6 +9350,39 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 957952739}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &957952741 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7041218914393388162, guid: 83d46e344647144578ef4bca6e090451,
+    type: 3}
+  m_PrefabInstance: {fileID: 957952739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &957952742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957952741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 028e8d0c0d037694c9c47d97d418e308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  continuousMoveProvider: {fileID: 0}
+  xrRigObject: {fileID: 0}
+  teleportDestination: {fileID: 0}
+  teleportRotation: {x: 0, y: 0, z: 0, w: 1}
+  layingDownDestination: {fileID: 0}
+  colorChangingImage: {fileID: 0}
+  colorChangeThreshold: 0.03
+  colorChangeSpeed: 1
+  audioClips: []
+  audioDelay: 1
+  layingDownDuration: 60
+  secondTeleportDelay: 10
+  headTransform: {fileID: 0}
+  image: {fileID: 0}
+  desiredRotationY: 180
 --- !u!1001 &966049999
 PrefabInstance:
   m_ObjectHideFlags: 0

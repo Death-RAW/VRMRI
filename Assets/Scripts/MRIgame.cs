@@ -6,7 +6,7 @@ using System.Collections;
 
 public class MRIGame : MonoBehaviour
 {
-    public ActionBasedContinuousMoveProvider continuousMoveProvider;
+    
     public GameObject xrRigObject;
     public Transform teleportDestination;
     public Quaternion teleportRotation = Quaternion.identity;
@@ -26,10 +26,12 @@ public class MRIGame : MonoBehaviour
     private float colorChangeTimer = 0f;
     private Vector3 lastHeadPosition;
     public float desiredRotationY = 180f;
+    public AudioClip MRInoise; // Audio clip to play during color change
+    private AudioSource audioSource; 
 
     void Awake()
     {
-        if (continuousMoveProvider == null || xrRigObject == null || teleportDestination == null || layingDownDestination == null || colorChangingImage == null || audioClips == null || audioClips.Length == 0 || headTransform == null)
+        if ( xrRigObject == null || teleportDestination == null || layingDownDestination == null || colorChangingImage == null || audioClips == null || audioClips.Length == 0 || headTransform == null)
         {
             Debug.LogError("Ensure all required components are assigned in the inspector!");
             return;
@@ -50,15 +52,7 @@ public class MRIGame : MonoBehaviour
 
     IEnumerator Sequence()
     {
-        if (continuousMoveProvider != null)
-        {
-            continuousMoveProvider.enabled = false;
-        }
-        else
-        {
-            Debug.LogError("Continuous Move Provider is null. Make sure it's assigned in the inspector!");
-            yield break;
-        }
+        
 
         if (teleportDestination != null)
         {
@@ -103,6 +97,12 @@ public class MRIGame : MonoBehaviour
             Debug.LogError("Laying Down Destination is null. Make sure it's assigned in the inspector!");
             yield break;
         }
+        audioSource = GetComponent<AudioSource>();
+         if (MRInoise != null)
+        {
+            // Assign the audio clip to the AudioSource component
+            audioSource.clip = MRInoise;
+        }
         StartCoroutine(ColorChange());
 
         yield return new WaitForSeconds(layingDownDuration);
@@ -121,20 +121,12 @@ public class MRIGame : MonoBehaviour
         }
 
 
-        if (continuousMoveProvider != null)
-        {
-            continuousMoveProvider.enabled = true;
-        }
-        else
-        {
-            Debug.LogError("Continuous Move Provider is null. Make sure it's assigned in the inspector!");
-        }
-
         isTeleported = false;
     }
 
     IEnumerator ColorChange()
     {
+        lastHeadPosition = headTransform.position;
         Color startColor = Color.green;
         Color brightYellow = new Color(1f, 1f, 0f, 1f);
         Color yellow = new Color(1f, 0.92f, 0.016f, 1f);
@@ -145,6 +137,7 @@ public class MRIGame : MonoBehaviour
 
         float elapsedTime = 0f;
         float colorChangeInterval = 2f; // Change color every second
+        audioSource.Play();
 
         while (elapsedTime < 60f) // Run for one minute
         {
