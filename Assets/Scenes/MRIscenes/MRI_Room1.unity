@@ -6313,7 +6313,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 1bca92907423c6a4499845f4c2f79e0b,
         type: 3}
       propertyPath: m_UpdateMode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 1bca92907423c6a4499845f4c2f79e0b,
         type: 3}
@@ -6336,10 +6336,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1bca92907423c6a4499845f4c2f79e0b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 930368564}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1bca92907423c6a4499845f4c2f79e0b,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 930368563}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1bca92907423c6a4499845f4c2f79e0b,
         type: 3}
@@ -6357,12 +6353,6 @@ PrefabInstance:
 --- !u!1 &930368560 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1bca92907423c6a4499845f4c2f79e0b,
-    type: 3}
-  m_PrefabInstance: {fileID: 930368559}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &930368561 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 1bca92907423c6a4499845f4c2f79e0b,
     type: 3}
   m_PrefabInstance: {fileID: 930368559}
   m_PrefabAsset: {fileID: 0}
@@ -6416,37 +6406,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &930368564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 930368560}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedebe99ac0fcbb49bcc31f2b9a356b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPosition: {fileID: 1315163603}
-  targetPosition_player: {fileID: 0}
-  targetPosition_cupboard: {fileID: 1717953343}
-  targetPosition_nurse1: {fileID: 0}
-  animator: {fileID: 930368561}
-  moveSpeed: 1
-  rotationSpeed: 5
-  source: {fileID: 930368565}
-  clips:
-  - {fileID: 8300000, guid: 277b603a22b1ef6498b2ac65fc2fff5c, type: 3}
-  - {fileID: 8300000, guid: 56c717b6d8e1b264cb5ce0aa427140f2, type: 3}
-  - {fileID: 8300000, guid: 7e15f8907fc19de4ab172fde1c0ed6d0, type: 3}
-  - {fileID: 8300000, guid: d8084b8fbbb2fb249a4faddd88565924, type: 3}
-  - {fileID: 8300000, guid: 1199c3ca2fc713045b9bb4fa3eb093a1, type: 3}
-  - {fileID: 8300000, guid: 2acbef2459065dd4dbdf041ea4330430, type: 3}
-  - {fileID: 8300000, guid: 1f7ec89040304ea45aa5b4cc7ccdcf32, type: 3}
-  - {fileID: 8300000, guid: 9b6ee671409d4b246b2ebb09b23a6062, type: 3}
-  character: {fileID: 930368560}
-  mother_character: {fileID: 1571603532}
 --- !u!82 &930368565
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8376,7 +8335,7 @@ Transform:
   m_GameObject: {fileID: 1216373197}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 9.979, y: 0.318, z: -6.889}
+  m_LocalPosition: {x: 9.979, y: 0.318, z: -6.569}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

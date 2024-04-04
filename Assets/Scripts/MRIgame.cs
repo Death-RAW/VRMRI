@@ -1,37 +1,33 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.XR.Interaction.Toolkit;
 using System.Collections;
 
 public class MRIGame : MonoBehaviour
 {
-    
     public GameObject xrRigObject;
     public Transform teleportDestination;
     public Quaternion teleportRotation = Quaternion.identity;
     public Transform layingDownDestination;
     public Image colorChangingImage;
     public float colorChangeThreshold = 0.03f;
-    public float colorChangeSpeed = 1f; // Increase the speed
     public AudioClip[] audioClips;
+    public AudioClip[] audioClips2;
     public float audioDelay = 1f;
     public float layingDownDuration = 60f;
     public float secondTeleportDelay = 10f;
     public Transform headTransform;
     public Image image;
     private bool isTeleported = false;
-    private Color startColor = Color.green;
-    private Color endColor = Color.red;
-    private float colorChangeTimer = 0f;
     private Vector3 lastHeadPosition;
     public float desiredRotationY = 180f;
-    public AudioClip MRInoise; // Audio clip to play during color change
-    private AudioSource audioSource; 
+    public AudioClip MRInoise;
+    private AudioSource audioSource;
+    private Vector3 initialPosition;
 
     void Awake()
     {
-        if ( xrRigObject == null || teleportDestination == null || layingDownDestination == null || colorChangingImage == null || audioClips == null || audioClips.Length == 0 || headTransform == null)
+        if (xrRigObject == null || teleportDestination == null || layingDownDestination == null || colorChangingImage == null || audioClips == null || audioClips.Length == 0 || headTransform == null)
         {
             Debug.LogError("Ensure all required components are assigned in the inspector!");
             return;
@@ -46,17 +42,23 @@ public class MRIGame : MonoBehaviour
         {
             Debug.LogError("Image component is null. Make sure it's assigned in the inspector!");
         }
+        initialPosition = xrRigObject.transform.position;
+        audioSource = GetComponent<AudioSource>();
 
         StartCoroutine(Sequence());
     }
 
+    void Update()
+    {
+        // Lock Y position of the XR rig object
+        Vector3 currentPosition = xrRigObject.transform.position;
+        xrRigObject.transform.position = new Vector3(currentPosition.x, initialPosition.y, currentPosition.z);
+    }
+
     IEnumerator Sequence()
     {
-        
-
         if (teleportDestination != null)
         {
-            // Set the rotation to desiredRotationY degrees around the Y-axis
             xrRigObject.transform.rotation = Quaternion.Euler(0f, desiredRotationY, 0f);
             xrRigObject.transform.position = teleportDestination.position;
         }
@@ -72,20 +74,16 @@ public class MRIGame : MonoBehaviour
         {
             if (audioClip != null)
             {
-                AudioSource.PlayClipAtPoint(audioClip, xrRigObject.transform.position);
-                yield return new WaitForSeconds(audioDelay);
+                audioSource.PlayOneShot(audioClip);
+                yield return new WaitForSeconds(audioClip.length);
             }
             else
             {
                 Debug.LogError("Audio Clip is null. Make sure all audio clips are assigned in the inspector!");
             }
         }
-        float timeElapsed = 0f;
-        while (timeElapsed < secondTeleportDelay)
-        {
-            timeElapsed += Time.deltaTime;
-            yield return null;
-        }
+
+        yield return new WaitForSeconds(secondTeleportDelay);
 
         if (layingDownDestination != null)
         {
@@ -97,17 +95,28 @@ public class MRIGame : MonoBehaviour
             Debug.LogError("Laying Down Destination is null. Make sure it's assigned in the inspector!");
             yield break;
         }
-        audioSource = GetComponent<AudioSource>();
-         if (MRInoise != null)
+
+        foreach (var audioClip in audioClips2)
         {
-            // Assign the audio clip to the AudioSource component
-            audioSource.clip = MRInoise;
+            if (audioClip != null)
+            {
+                audioSource.PlayOneShot(audioClip);
+                yield return new WaitForSeconds(audioClip.length);
+            }
+            else
+            {
+                Debug.LogError("Audio Clip is null. Make sure all audio clips are assigned in the inspector!");
+            }
         }
+
+        if (MRInoise != null)
+        {
+            audioSource.PlayOneShot(MRInoise);
+        }
+
         StartCoroutine(ColorChange());
 
         yield return new WaitForSeconds(layingDownDuration);
-
-        // Introduce the second teleport delay
 
         if (teleportDestination != null)
         {
@@ -120,60 +129,65 @@ public class MRIGame : MonoBehaviour
             yield break;
         }
 
-
         isTeleported = false;
     }
 
     IEnumerator ColorChange()
+{
+    lastHeadPosition = headTransform.position;
+    Color startColor = Color.green;
+    Color brightYellow = new Color(1f, 1f, 0f, 1f);
+    Color yellow = new Color(1f, 0.92f, 0.016f, 1f);
+    Color lightOrange = new Color(1f, 0.8f, 0.1f, 1f);
+    Color orange = new Color(1f, 0.647f, 0f, 1f);
+    Color darkOrange = new Color(1f, 0.5f, 0f, 1f);
+    Color redOrange = new Color(1f, 0.2f, 0f, 1f);
+    Color endColor = Color.red;
+
+    Color currentColor = startColor;
+
+    float elapsedTime = 0f;
+    float colorChangeInterval = 2f; // Change color every second
+
+    while (elapsedTime < 60f) // Run for one minute
     {
-        lastHeadPosition = headTransform.position;
-        Color startColor = Color.green;
-        Color brightYellow = new Color(1f, 1f, 0f, 1f);
-        Color yellow = new Color(1f, 0.92f, 0.016f, 1f);
-        Color orange = new Color(1f, 0.647f, 0f, 1f);
-        Color endColor = Color.red;
+        Vector3 currentHeadPosition = headTransform.position;
+        float distance_x = Mathf.Abs(currentHeadPosition.x - lastHeadPosition.x);
+        float distance_y = Mathf.Abs(currentHeadPosition.y - lastHeadPosition.y);
+        float distance_z = Mathf.Abs(currentHeadPosition.z - lastHeadPosition.z);
 
-        Color currentColor = startColor;
-
-        float elapsedTime = 0f;
-        float colorChangeInterval = 2f; // Change color every second
-        audioSource.Play();
-
-        while (elapsedTime < 60f) // Run for one minute
+        if (distance_x > colorChangeThreshold || distance_y > colorChangeThreshold || distance_z > colorChangeThreshold)
         {
-            Vector3 currentHeadPosition = headTransform.position;
-            float distance_x = Mathf.Abs(currentHeadPosition.x - lastHeadPosition.x);
-            float distance_y = Mathf.Abs(currentHeadPosition.y - lastHeadPosition.y);
-            float distance_z = Mathf.Abs(currentHeadPosition.z - lastHeadPosition.z);
+            if (currentColor == startColor)
+                currentColor = brightYellow;
+            else if (currentColor == brightYellow)
+                currentColor = yellow;
+            else if (currentColor == yellow)
+                currentColor = lightOrange;
+            else if (currentColor == lightOrange)
+                currentColor = orange;
+            else if (currentColor == orange)
+                currentColor = darkOrange;
+            else if (currentColor == darkOrange)
+                currentColor = redOrange;
+            else if (currentColor == redOrange)
+                currentColor = endColor;
 
-            if (distance_x > colorChangeThreshold || distance_y > colorChangeThreshold || distance_z > colorChangeThreshold)
+            if (image != null)
             {
-                // Change the color immediately when the head position changes enough
-                if (currentColor == startColor)
-                    currentColor = brightYellow;
-                else if (currentColor == brightYellow)
-                    currentColor = yellow;
-                else if (currentColor == yellow)
-                    currentColor = orange;
-                else if (currentColor == orange)
-                    currentColor = endColor;
-
-                // Apply the color to the image
-                if (image != null)
-                {
-                    image.color = currentColor;
-                    Debug.Log($"Color changed to: {currentColor}");
-                }
-                else
-                {
-                    Debug.LogError("Image component is null. Make sure it's assigned in the inspector!");
-                }
+                image.color = currentColor;
+                Debug.Log($"Color changed to: {currentColor}");
             }
-
-            lastHeadPosition = currentHeadPosition;
-            elapsedTime += Time.deltaTime;
-
-            yield return new WaitForSeconds(colorChangeInterval);
+            else
+            {
+                Debug.LogError("Image component is null. Make sure it's assigned in the inspector!");
+            }
         }
+
+        lastHeadPosition = currentHeadPosition;
+        elapsedTime += Time.deltaTime;
+
+        yield return new WaitForSeconds(colorChangeInterval);
     }
+}
 }

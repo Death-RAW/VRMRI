@@ -26,7 +26,6 @@ public class SceneController : MonoBehaviour
         instance = this;
 
         // Mark the GameObject as "Don't Destroy On Load"
-        DontDestroyOnLoad(gameObject);
 
         // Start playing the audio clips
         StartCoroutine(PlayAudioThenLoadScene());
