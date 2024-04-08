@@ -13,6 +13,8 @@ public class RoomManager : MonoBehaviour{
     public GameObject xrCamera;
     private AudioSource audioSource;
     public GameObject mother;
+    public Transform teleportPos;
+    public GameObject xrRigObject;
     void Start()
     {
         GameObject videoPlane = GameObject.Find("videoPlane");
@@ -94,7 +96,8 @@ public class RoomManager : MonoBehaviour{
         MoveMotherToPosition(new Vector3(-6.712f, 0.01f, 10.099f));
 
         // Move XR Camera (XR Rig) to the final position
-        MoveXRCameraToPosition(new Vector3(-6.59f, 0.584f, 9.073f));
+        xrRigObject.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        xrRigObject.transform.position = teleportPos.position;
         Debug.Log("XR Camera (XR Rig) moved to the final position. Current position: " + GetXRCameraPosition());
 
         Debug.Log("Room sequence completed.");

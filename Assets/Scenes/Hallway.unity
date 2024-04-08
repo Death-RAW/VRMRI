@@ -8446,7 +8446,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329301452}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bf296fc962d7184ab14ad1841598d5f, type: 3}
   m_Name: 
@@ -12119,7 +12119,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7, y: 0.4, z: 0.7}
+  m_Size: {x: 0.4, y: 0.4, z: 0.7}
   m_Center: {x: -0.4, y: 0, z: -2.2}
 --- !u!114 &424948879
 MonoBehaviour:
@@ -18873,7 +18873,7 @@ Transform:
   m_GameObject: {fileID: 700913778}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -4.679, y: 0.010000229, z: 9.242}
+  m_LocalPosition: {x: -5.958, y: 0.010000229, z: 9.242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40900,6 +40900,8 @@ MonoBehaviour:
   audioStopTime: 18
   xrCamera: {fileID: 424948872}
   mother: {fileID: 184821597}
+  teleportPos: {fileID: 700913779}
+  xrRigObject: {fileID: 424948872}
 --- !u!4 &1511561298
 Transform:
   m_ObjectHideFlags: 0
@@ -50079,6 +50081,11 @@ PrefabInstance:
     - target: {fileID: 5257281660874314711, guid: 214b673e61a328f4b97a4c1f1bba63d3,
         type: 3}
       propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424270456697187808, guid: 214b673e61a328f4b97a4c1f1bba63d3,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6424270456697187808, guid: 214b673e61a328f4b97a4c1f1bba63d3,
@@ -62831,7 +62838,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146091399}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0342b569a7b4fd04aa700a0b8e9ba98c, type: 3}
   m_Name: 
@@ -62839,6 +62846,7 @@ MonoBehaviour:
   xrRigObject: {fileID: 424948872}
   teleportLocation: {fileID: 700913779}
   desiredRotationY: 180
+  timeToTele: 20
 --- !u!1 &2146680606 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4128354613904344275, guid: 2fb839915aaece74fbd0f24eb1d61b94,

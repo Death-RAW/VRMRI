@@ -7,10 +7,11 @@ public class teleport : MonoBehaviour
     public GameObject xrRigObject;
     public Transform teleportLocation; // The location to teleport to
     public float desiredRotationY = 180f;
+    public float timeToTele;
     void Start()
     {
         // Invoke the Teleport function after 10 seconds
-        Invoke("Teleport", 15f);
+        Invoke("Teleport", timeToTele);
     }
 
     void Teleport()
