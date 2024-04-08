@@ -4856,26 +4856,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789255717}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 028e8d0c0d037694c9c47d97d418e308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  continuousMoveProvider: {fileID: 0}
   xrRigObject: {fileID: 0}
   teleportDestination: {fileID: 0}
   teleportRotation: {x: 0, y: 0, z: 0, w: 1}
   layingDownDestination: {fileID: 0}
   colorChangingImage: {fileID: 0}
   colorChangeThreshold: 0.03
-  colorChangeSpeed: 1
   audioClips: []
+  audioClips2: []
   audioDelay: 1
   layingDownDuration: 60
   secondTeleportDelay: 10
   headTransform: {fileID: 0}
   image: {fileID: 2046906986}
   desiredRotationY: 180
+  MRInoise: {fileID: 0}
+  nextScene: 
 --- !u!1 &789352004
 GameObject:
   m_ObjectHideFlags: 0

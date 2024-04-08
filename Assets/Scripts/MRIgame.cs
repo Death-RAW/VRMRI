@@ -24,6 +24,7 @@ public class MRIGame : MonoBehaviour
     public AudioClip MRInoise;
     private AudioSource audioSource;
     private Vector3 initialPosition;
+    public string nextScene; 
 
     void Awake()
     {
@@ -189,5 +190,7 @@ public class MRIGame : MonoBehaviour
 
         yield return new WaitForSeconds(colorChangeInterval);
     }
+    SceneManager.LoadScene(nextScene);
+
 }
 }
