@@ -10491,13 +10491,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 277b603a22b1ef6498b2ac65fc2fff5c, type: 3}
-  - {fileID: 8300000, guid: 56c717b6d8e1b264cb5ce0aa427140f2, type: 3}
-  - {fileID: 8300000, guid: 7e15f8907fc19de4ab172fde1c0ed6d0, type: 3}
-  - {fileID: 8300000, guid: d8084b8fbbb2fb249a4faddd88565924, type: 3}
-  - {fileID: 8300000, guid: 1199c3ca2fc713045b9bb4fa3eb093a1, type: 3}
-  - {fileID: 8300000, guid: 2acbef2459065dd4dbdf041ea4330430, type: 3}
-  nextSceneName: MRI_Room2
+  - {fileID: 8300000, guid: 9bc3b3b5bbac18844a3d75a3b05b3bde, type: 3}
+  - {fileID: 8300000, guid: b2795b482903a54449f2400da208f227, type: 3}
+  - {fileID: 8300000, guid: 135cd7f3821213d4eb2624738a3fd02f, type: 3}
+  nextSceneName: MainMenu
   audioSource: {fileID: 1532672275}
 --- !u!114 &1532672272
 MonoBehaviour:
