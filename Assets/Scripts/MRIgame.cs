@@ -131,6 +131,7 @@ public class MRIGame : MonoBehaviour
         }
 
         isTeleported = false;
+        SceneManager.LoadScene(nextScene);
     }
 
     IEnumerator ColorChange()
@@ -150,7 +151,7 @@ public class MRIGame : MonoBehaviour
     float elapsedTime = 0f;
     float colorChangeInterval = 2f; // Change color every second
 
-    while (elapsedTime < 60f) // Run for one minute
+    while (elapsedTime < 10f) // Run for one minute
     {
         Vector3 currentHeadPosition = headTransform.position;
         float distance_x = Mathf.Abs(currentHeadPosition.x - lastHeadPosition.x);
@@ -190,7 +191,7 @@ public class MRIGame : MonoBehaviour
 
         yield return new WaitForSeconds(colorChangeInterval);
     }
-    SceneManager.LoadScene(nextScene);
+   
 
 }
 }
