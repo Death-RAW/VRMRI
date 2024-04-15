@@ -3402,7 +3402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028e8d0c0d037694c9c47d97d418e308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xrRigObject: {fileID: 1139883006}
+  xrRigObject: {fileID: 1755732077}
   teleportDestination: {fileID: 601024389}
   teleportRotation: {x: 0, y: 0, z: 0, w: 1}
   layingDownDestination: {fileID: 1695814418}
@@ -4347,7 +4347,7 @@ Transform:
   m_GameObject: {fileID: 601024388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.328, y: 1.606, z: -0.495}
+  m_LocalPosition: {x: 1.893, y: 1.606, z: -0.495}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12004,7 +12004,7 @@ Transform:
   m_GameObject: {fileID: 1695814417}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.207, y: 1.6598, z: 0.907}
+  m_LocalPosition: {x: 1.803, y: 1.6598, z: 1.192}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
