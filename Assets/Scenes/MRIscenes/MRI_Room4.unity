@@ -7725,7 +7725,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 95825a4b681f66540941497f1584548d, type: 3}
   - {fileID: 8300000, guid: c0e8e842362c7c64594801706e5c0bf5, type: 3}
   teleportLocation: {fileID: 1665054441}
-  xrRigObject: {fileID: 777034276}
+  xrRigObject: {fileID: 1247131454}
   teleportDelay: 1
   sceneToLoad: MRI_Room5
   desiredRotationY: 180
@@ -9011,7 +9011,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 8fb0a0c2a4f416546b7e1ce5100a6eff, type: 2}
+      objectReference: {fileID: 9100000, guid: 5c6e1050974e0914f911bb67f5747451, type: 2}
     - target: {fileID: 5866666021909216657, guid: 1bca92907423c6a4499845f4c2f79e0b,
         type: 3}
       propertyPath: m_ApplyRootMotion
@@ -11462,7 +11462,7 @@ Transform:
   m_GameObject: {fileID: 1665054440}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.95, y: 1.779, z: -0.624}
+  m_LocalPosition: {x: 1.832, y: 1.834, z: -0.624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
